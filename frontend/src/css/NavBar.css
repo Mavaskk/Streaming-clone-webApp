@@ -14,10 +14,10 @@ nav{
 .nav-link{
     font-family: "Lalezar",sans-serif;
     color: white;
-    font-size: 1.2rem;
+    font-size: 0.5rem;
 }
 .nav-link:hover{
-    color: rgb(219, 215, 215);
+    color: rgb(177, 175, 175);
 }
 .nav-link:focus{
     color: rgb(219, 215, 215);
@@ -29,4 +29,45 @@ nav{
 
 .right-container{
     gap: 3rem;
+}
+
+
+@media (min-width: 576px) {
+
+.nav-link{
+    font-size: 1rem;
+
+}
+
+    
+  
+}
+
+/* Medium devices (md) - ≥768px */
+@media (min-width: 768px) {
+.nav-link{
+    font-size: 1.2rem;
+    
+}
+
+
+}
+
+
+/* Large devices (lg) - ≥992px */
+@media (min-width: 992px) {
+
+  
+}
+
+/* Extra large devices (xl) - ≥1200px */
+@media (min-width: 1200px) {
+
+  
+}
+
+/* Extra extra large devices (xxl) - ≥1400px */
+@media (min-width: 1400px) {
+
+  
 }

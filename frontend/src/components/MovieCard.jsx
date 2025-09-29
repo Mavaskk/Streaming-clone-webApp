@@ -10,24 +10,25 @@ function MovieCard(props) {
         ? `https://image.tmdb.org/t/p/w200/${props.posterPath}`
         : "../assets/movie-placehoder.jpg"; 
 
-        const [hover,setHover] = useState(false)
 
 
         const hoverContainer = useRef(null)
 
 
-
+        const truncateVote = ((number) => {
+            return new String(number).substring(0,3) //converto in stringa per fare substring
+        })
 
     return (
-        <div className="col-6 col-md-4 col-lg-3 col-xl-3 mt-4 position-relative">
+        <div className="col-6 col-md-4 col-lg-3  mt-3 col-xl-3  position-relative">
             <li className="movie-card " >
-                <img  onMouseEnter={() => {setHover(true);gsap.to(hoverContainer.current,{
+                <img  onMouseEnter={() => {gsap.to(hoverContainer.current,{
                     opacity:1,
                     
                 });
 
             }
-                } onMouseLeave={() => {setHover(false);gsap.to(hoverContainer.current,{
+                } onMouseLeave={() => {gsap.to(hoverContainer.current,{
                     opacity:0,
                     
                 });
@@ -43,8 +44,8 @@ function MovieCard(props) {
                               
                         </div>
                     
-                        <div className="review-container position-absolute  d-flex flex-row  ">
-                            <p className="m-0 vote-average text-truncate"> {props.voteAverage} </p>
+                        <div className="review-container position-absolute text-truncate d-flex flex-row  ">
+                            <p className="m-0 vote-average text-truncate"> {truncateVote(props.voteAverage)}{} </p>
                             <FontAwesomeIcon icon={faStar} />
 
                         </div>

@@ -13,7 +13,7 @@ export async function searchMovieTMDB (query){
     }
     };
 
-    let arrayResult = null
+    let arrayResult = null    
     const apiResponse = await fetch(url, options)
     const apiData = await apiResponse.json()
     .catch(err => console.error(err));    
@@ -38,14 +38,58 @@ export async function searchMovieTMDB (query){
         return  returnList
     }
     return returnList
+}    
     
     
+export async function trandingMovieTMDB (){
+
+    const returnList = []; 
+
+    const url = `https://api.themoviedb.org/3/trending/movie/week?language=en-US`;
+    const options = {
+    method: 'GET',
+    headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${API_KEY}`
+    }
+    };
+
+    let arrayResult = null    
+    const apiResponse = await fetch(url, options)
+    const apiData = await apiResponse.json()
+    .catch(err => console.error(err));    
+    
+    arrayResult = apiData.results
+    if (arrayResult) {
+        const searchCount = arrayResult.length;        
+        for (let i = 0; i < searchCount; i++) {
+            const movie = {};  
+            movie.id = arrayResult[i].id   
+            movie.adult = arrayResult[i].adult
+            movie.title = arrayResult[i].title
+            movie.voteAverage = arrayResult[i].vote_average
+            movie.releaseDate = arrayResult[i].release_date
+            movie.posterPath = arrayResult[i].poster_path
+            movie.backdropPath = arrayResult[i].backdrop_path
+            movie.popularity = arrayResult[i].popularity
+
+            
+            returnList.push(movie)            
+        }
+        return  returnList
+    }
+    return returnList
     
     
+        
+
+
 
 
     
 
-// poster api info https://developer.themoviedb.org/docs/image-basics
+
+    
+
 
 }
