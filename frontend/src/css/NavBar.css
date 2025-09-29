@@ -1,0 +1,32 @@
+
+
+
+nav{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color: #181A21;
+    justify-content: space-between;
+}
+
+.nav-link{
+    font-family: "Lalezar",sans-serif;
+    color: white;
+    font-size: 1.2rem;
+}
+.nav-link:hover{
+    color: rgb(219, 215, 215);
+}
+.nav-link:focus{
+    color: rgb(219, 215, 215);
+}
+
+.left-container {
+    gap: 3rem;
+}
+
+.right-container{
+    gap: 3rem;
+}

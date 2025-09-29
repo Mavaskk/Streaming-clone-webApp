@@ -1,0 +1,39 @@
+
+
+input{
+    background-color: #181A21;
+    border: none;
+    color: #CBC9C9;;
+    width: 90vw;
+    font-family: "Montserrat",sans-serif;
+    font-size:1.5rem ;
+}
+
+form{
+    margin-top: 1rem;
+}
+
+input:focus{
+    outline: none;
+
+
+}
+
+.input-wrapper{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid #515151 0.2rem;
+}
+
+.search-icon{
+    display: inline-block;
+    margin-right: 0.2rem;
+    font-family: "Font Awesome 7 Free"; 
+    color: #CBC9C9;
+    font-size: 1.4rem
+
+    /* width: ;
+    height: ;  fissa*/
+
+}
