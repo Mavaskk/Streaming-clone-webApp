@@ -1,0 +1,95 @@
+.landing-movie-card{
+    width: 30vw; 
+    box-sizing: border-box;
+}
+
+
+.landing-movie-card:hover{
+    width: 100%;
+}
+
+
+
+
+.landing-movie-card img{
+    border-radius: 10px;
+    object-fit: fill;
+    width: 100%;
+    height: 8rem;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+
+}
+
+.landing-movie-card .center{
+    height:11rem ;
+    
+}
+
+/* Small devices (sm) - ≥576px */
+@media (min-width: 576px) {
+            .landing-movie-card img{
+    height: 15rem;
+}
+
+
+.landing-movie-card .center{
+    height:19rem ;
+    
+}
+
+    
+  
+}
+
+/* Medium devices (md) - ≥768px */
+@media (min-width: 768px) {
+        .landing-movie-card img{
+    height: 16rem;
+}
+
+.landing-movie-card .center{
+    height:20rem ;
+    
+}
+}
+
+/* Large devices (lg) - ≥992px */
+@media (min-width: 992px) {
+    .landing-movie-card img{
+    height: 17.5rem;
+}
+
+.landing-movie-card .center{
+    height:23.5rem ;
+    
+}
+  
+}
+
+/* Extra large devices (xl) - ≥1200px */
+@media (min-width: 1200px) {
+        .landing-movie-card img{
+    height: 21rem;
+
+}
+
+.landing-movie-card .center{
+    height:25rem ;
+    
+}
+  
+}
+
+/* Extra extra large devices (xxl) - ≥1400px */
+@media (min-width: 1400px) {
+            .landing-movie-card img{
+    height: 25rem;
+}
+
+.landing-movie-card .center{
+    height:34rem ;
+    
+}
+  
+}

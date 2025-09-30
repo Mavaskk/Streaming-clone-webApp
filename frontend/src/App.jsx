@@ -16,6 +16,7 @@ function App() {
       <Route path='/' element={ <Home/>}></Route>
       <Route path='/favorites' element={ <Favorites/>}></Route>
       <Route path='/search' element={ <Search/>}></Route>
+      {/* <Route path='*' element={ <Search/>}></Route>  AGGIUNGERE PAGINA DEL NOT FOUND ERROR 404 */}
 
     </Routes>
      
