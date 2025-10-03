@@ -6,6 +6,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 
 function MovieCard(props) {
+
        const posterSrc = props.posterPath !== null
         ? `https://image.tmdb.org/t/p/w200/${props.posterPath}`
         : "../assets/movie-placehoder.jpg"; 

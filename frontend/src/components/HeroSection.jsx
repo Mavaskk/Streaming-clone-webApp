@@ -33,7 +33,7 @@ function  HeroSection() {
             })).then(array => {
                 setMoviesLandingList(array)
             }) .catch(err => console.log(err))
-                    }
+        }
     },[moviesInTheatres]) 
 
     const cardLandingContainer = useRef(null)
@@ -58,7 +58,7 @@ function  HeroSection() {
 
 
     return (
-        <div>
+        <section>
             <ul ref={cardLandingContainer} className="container-fluid d-flex mt-5 gap-3 justify-content-center  ">
                 {moviesLandingList.map((movie,index) => (
                     <LandingCard  centerClass = {index == 1 ? ("center") : ("")} posterPath={movie.posterPath} videoKey={movie.key} key={movie.id} title={movie.title} voteAverage={movie.voteAverage} releaseDate={movie.releaseDate} />
@@ -67,7 +67,7 @@ function  HeroSection() {
             </ul>
 
 
-        </div>
+        </section>
     )
     
 }

@@ -25,10 +25,7 @@ iframe{
 
 }
 
-/* .landing-movie-card .center{ X ADESSO LE FACCIO TUTTE UGUALI
-    height:11rem ;
-    
-} */
+
 
 /* Small devices (sm) - ≥576px */
 @media (min-width: 576px) {
@@ -37,10 +34,7 @@ iframe{
 }
 
 
-/* .landing-movie-card .center{
-    height:19rem ;
-    
-} */
+
 
     
   
@@ -52,10 +46,7 @@ iframe{
     height: 16rem;
 }
 
-/* .landing-movie-card .center{
-    height:20rem ;
-    
-} */
+
 }
 
 /* Large devices (lg) - ≥992px */
@@ -64,10 +55,6 @@ iframe{
     height: 17.5rem;
 }
 
-/* .landing-movie-card .center{
-    height:23.5rem ;
-    
-} */
   
 }
 
@@ -78,10 +65,6 @@ iframe{
 
 }
 
-/* .landing-movie-card .center{
-    height:25rem ;
-    
-} */
   
 }
 
@@ -91,9 +74,4 @@ iframe{
     height: 25rem;
 }
 
-/* .landing-movie-card .center{
-    height:34rem ;
-    
-} */
-  
 }
