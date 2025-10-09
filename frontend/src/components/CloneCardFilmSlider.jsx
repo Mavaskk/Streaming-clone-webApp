@@ -7,7 +7,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 
 
-function CardFilmSlider(props) {
+function CloneCardFilmSlider(props) {
 
 
 
@@ -24,7 +24,18 @@ function CardFilmSlider(props) {
         const imgRef = useRef(null)
         const cardRef = useRef(null)
 
+        useEffect(() => {
+            console.log(props.activateCard);
+            
+            gsap.set(liRef.current,{
+                width: props.activateCard.width + 2,
+                height: props.activateCard.height + 2,
+                top: props.activateCard.y - props.activateCard.sectionY ,
+                left: props.activateCard.x - props.activateCard.sectionX - 14,
 
+            })
+            
+        },[props.activateCard])
 
 
         const truncateVote = ((number) => {
@@ -32,7 +43,7 @@ function CardFilmSlider(props) {
         })
 
     return (
-            <li ref={liRef} className="li-card-movie  ms-2 ms-lg-3 ms-xl-4 me-2 me-lg-3 me-xl-4 mt-4  "
+            <li ref={liRef} className="li-card-movie position-absolute "
 
             
             
@@ -48,36 +59,32 @@ function CardFilmSlider(props) {
                         gsap.to(hoverContainer.current,{
                             opacity:0,
                         });
+
                 }}>
                 <div ref={cardRef} className="movie-card position-relative">
                     <img ref={imgRef}  
                         onMouseEnter={() => {
-                            gsap.set(imgRef.current,{ //setto direttamente lo stile hover da qua
-                                filter:"brightness(20%)",
+                        gsap.set(imgRef.current,{ //setto direttamente lo stile hover da qua
+                            filter:"brightness(20%)",
 
-                            });
+                        });
+                        
 
-                            const width = cardRef.current.getBoundingClientRect().width //ottengo i dati della imgCard e passo al padre
-                            const height = cardRef.current.getBoundingClientRect().height
-                            const x = cardRef.current.getBoundingClientRect().x
-                            const y = cardRef.current.getBoundingClientRect().y
-                            props.passHoverState(props.id,width,height,x,y)
-                            
-                            gsap.set(cardRef.current,{ //setto direttamente lo stile hover da qua
-                                borderColor:"white",
-                                borderRadius:" 10px 0px 0px 10px",
-                                border:"2px solid"
+                        gsap.set(cardRef.current,{ //setto direttamente lo stile hover da qua
+                            borderColor:"white",
+                            borderRadius:" 10px 0px 0px 10px",
+                            border:"2px solid"
 
-                            });
-                            gsap.to(hoverContainer.current,{
-                                opacity:1,
-                            });
+                        });
+                        gsap.to(hoverContainer.current,{
+                            opacity:1,
+                        });
                         }} 
-                    src={posterSrc}  alt={props.title} />
+                        src={posterSrc}  alt={props.title} />
 
                         <div ref={hoverContainer}  className="hover-container">
                             <div className="position-absolute bottom-0">
-                                <p className="ms-1 title-hover mb-0 ">{props.title}</p>   
+                                <p className="ms-1 title-hover mb-0 ">negro</p>   
                                 {props.releaseDate  ? (<button className="btn-releaseDate">{props.releaseDate}</button>)
                                 : (<button className="btn-releaseDate">Not found</button>)}
                                 
@@ -99,4 +106,4 @@ function CardFilmSlider(props) {
     
 }
 
-export default CardFilmSlider;
+export default CloneCardFilmSlider;

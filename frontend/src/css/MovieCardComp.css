@@ -1,18 +1,7 @@
-.movie-card{
-    width: 100%; 
-    box-sizing: border-box;
-    border: 2px solid #181A21;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
 
-}
-
-.movie-card img{
-    border-radius: 10px;
-    object-fit: fill;
-    width: 100%;
-    height: 12rem;
-
+.btn-container{
+    border: 2px solid white;
+    border-radius: 10;
 }
 
 
@@ -29,13 +18,39 @@
 
 }
 
+.cta-btn-card{
+    border-radius: 12px;
+    background: #272829;
+    font-family: "Montserrat";
+    border: none;
+    color: white;
+    
+}
+
+
 .hover-container{
     pointer-events: none;
-    overflow: hidden;   /* taglia tutto ciò che esce dai bordi */
     opacity: 0;
 
 }
 
+.movie-card{
+    width: 100%; 
+    box-sizing: border-box;
+    border: 2px solid #181A21;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    height: 100%;
+
+}
+
+.movie-card img{
+    border-radius: 10px;
+    object-fit: fill;
+    width: 100%;
+    height: 12rem;
+
+}
 .review-container{
     color: white;
     right: 10%;
@@ -43,28 +58,21 @@
 
 }
 
-.movie-card img:hover {
-        /* filter: blur(4.849999904632568px); */
-        filter: brightness(20%);
 
 
 
-}
-
-
-
-.movie-card:hover{
+/* .movie-card:hover{
     border: 2px solid white;
     border-radius: 10px;
     
 
-}
+} */
 
 
 .title-hover{
     color: white;
     font-family: "Lalezar",sans-serif;
-        overflow: hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
     font-size: 0.9rem;
 
@@ -89,9 +97,7 @@
 
 /* Medium devices (md) - ≥768px */
 @media (min-width: 768px) {
-        .movie-card img{
-    height: 16rem;
-}
+
 .btn-releaseDate{
     padding: 0.7rem ;
     font-size: 0.7rem;
@@ -101,6 +107,10 @@
 }
 
 
+
+        .movie-card img{
+    height: 16rem;
+}
 .title-hover{
     font-size: 1.5rem;
 
@@ -123,19 +133,21 @@
 
 /* Extra large devices (xl) - ≥1200px */
 @media (min-width: 1200px) {
-        .movie-card img{
-    height: 21rem;
 
-}
+
+    .movie-card img{
+        height: 21rem;
+    }
   
 }
 
 /* Extra extra large devices (xxl) - ≥1400px */
 @media (min-width: 1400px) {
-            .movie-card img{
-    height: 25rem;
 
-}
+
+    .movie-card img{
+        height: 25rem;
+    }
   
 }
 

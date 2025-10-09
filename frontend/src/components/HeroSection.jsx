@@ -59,7 +59,7 @@ function  HeroSection() {
 
     return (
         <section>
-            <ul ref={cardLandingContainer} className="container-fluid d-flex mt-5 gap-3 justify-content-center  ">
+            <ul ref={cardLandingContainer} className="container-fluid d-flex mt-5 gap-3 justify-content-center mb-4 mb-md-5">
                 {moviesLandingList.map((movie,index) => (
                     <LandingCard  centerClass = {index == 1 ? ("center") : ("")} posterPath={movie.posterPath} videoKey={movie.key} key={movie.id} title={movie.title} voteAverage={movie.voteAverage} releaseDate={movie.releaseDate} />
                 ))}
