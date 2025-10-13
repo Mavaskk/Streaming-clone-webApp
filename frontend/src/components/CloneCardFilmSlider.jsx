@@ -1,9 +1,12 @@
 import "../css/MovieCardComp.css"
 import "../css/CardFilmSlider.css"
 import { useState,useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar } from '@fortawesome/free-solid-svg-icons'
+import FooterCard from "./FooterCard";
+
 
 
 
@@ -23,11 +26,12 @@ function CloneCardFilmSlider(props) {
         const liRef = useRef(null)
         const imgRef = useRef(null)
         const cardRef = useRef(null)
+        const navigate = useNavigate()
 
         useEffect(() => {
             console.log(props.activateCard);
             
-            gsap.set(liRef.current,{
+            gsap.set(cardRef.current,{
                 width: props.activateCard.width + 2,
                 height: props.activateCard.height + 2,
                 top: props.activateCard.y - props.activateCard.sectionY ,
@@ -63,6 +67,9 @@ function CloneCardFilmSlider(props) {
                 }}>
                 <div ref={cardRef} className="movie-card position-relative">
                     <img ref={imgRef}  
+                        onClick={() => (navigate(`/movie/${props.id}` ))}
+
+
                         onMouseEnter={() => {
                         gsap.set(imgRef.current,{ //setto direttamente lo stile hover da qua
                             filter:"brightness(20%)",
@@ -97,6 +104,8 @@ function CloneCardFilmSlider(props) {
                             
                              
                         </div>     
+                        <FooterCard  movieId={props.id}/>                    
+
                                       
                 </div>
                 

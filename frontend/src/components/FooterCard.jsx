@@ -3,6 +3,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { gsap } from "gsap";
 import { useEffect, useRef, useState } from 'react';
+import PlayMovieBtn from './PlayMovieBtn';
 
 
 
@@ -12,34 +13,34 @@ function FooterCard(props) {
     const [cardHoverStatus,setCardHoverStatus] = useState(false)
     const footerContainer = useRef(null)
 
-    useEffect(() => {
-        gsap.set(footerContainer.current,{
-            opacity:0,
-        })
+    // useEffect(() => {
+    //     gsap.set(footerContainer.current,{
+    //         opacity:0,
+    //     })
         
-    },[])      
+    // },[])      
 
-    useEffect(() => {
-        // console.log(props.saveHoverState);
-        if (props.saveHoverState === true) {
-            setCardHoverStatus(true)
-            gsap.to(footerContainer.current,{
-                opacity:1,
-                // scale:1.1,
+    // useEffect(() => {
+    //     // console.log(props.saveHoverState);
+    //     if (props.saveHoverState === true) {
+    //         setCardHoverStatus(true)
+    //         gsap.to(footerContainer.current,{
+    //             opacity:1,
+    //             // scale:1.1,
 
-            })
-        }
-        else {
-            setCardHoverStatus(false)
-            gsap.to(footerContainer.current,{
-            opacity:0,
-            scale:1
+    //         })
+    //     }
+    //     else {
+    //         setCardHoverStatus(false)
+    //         gsap.to(footerContainer.current,{
+    //         opacity:0,
+    //         scale:1
 
-            })
-        }        
+    //         })
+    //     }        
         
 
-    },[props.saveHoverState])
+    // },[props.saveHoverState])
      
 
     
@@ -65,7 +66,7 @@ function FooterCard(props) {
             <button onClick={() => console.log("click")
             } className="cta-btn-card p-2 mt-2 mb-1"><FontAwesomeIcon icon={faPlus} /></button>
             {/* aggiungere condizione che mostra il play solo se film supportato da api */}
-            <button className="cta-btn-card mt-2 mb-1"><FontAwesomeIcon icon={faPlay} />Play</button>
+            <PlayMovieBtn movieId={props.movieId}/>
         </div>
     )
 }

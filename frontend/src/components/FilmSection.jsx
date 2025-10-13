@@ -103,13 +103,7 @@ function FilmSection(props) {
                         {activateCard !==  null && (filmList.map(obj => 
                             (obj.id === activateCard.id && (<CloneCardFilmSlider activateCard={activateCard} passHoverState={passHoverState} releaseDate={obj.releaseDate} title={obj.title} backdropPath ={obj.backdropPath} posterPath ={obj.posterPath} voteAverage = {obj.voteAverage} key={obj.id} id={obj.id}/>)
                         ))
-                        )}
-
-        
-                                
-                    
-                                    
-                    {/* <FooterCard  />                     */}
+                        )}                                    
 
             </section>
 

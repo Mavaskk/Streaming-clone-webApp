@@ -20,6 +20,7 @@ function syncObj (arrayResult,returnList,searchCount) {
 }
 
 
+
 export async function getMoviesInTheatres() {
     const returnList = []; 
 
@@ -81,6 +82,38 @@ export async function getMovieTrailerOnYt(id) {
         }
 
 }
+
+
+export async function findById(id) {
+
+    const movie = {}; 
+
+    const url = `https://api.themoviedb.org/3/movie/${id}}`
+;
+    const options = {
+    method: 'GET',
+    headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${API_KEY}`
+    }
+    };
+
+    const apiResponse = await fetch(url, options)
+    const apiData = await apiResponse.json()
+    .catch(err => console.error(err));    
+    movie.title = apiData.title
+    movie.adult = apiData.adult
+    movie.backdropPath = apiData.backdrop_path
+    movie.posterPath = apiData.poster_path
+    movie.releaseDate = apiData.release_date
+    movie.voteAverage = apiData.vote_average
+    return movie
+    
+    // if (arrayResult) {
+    //     return syncObj(arrayResult,returnList,arrayResult.length)
+    //     }
+}
+
 
 
 export async function searchMovieTMDB (query){
