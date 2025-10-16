@@ -1,0 +1,153 @@
+.h2-font-size{
+    font-family: "Montserrat",sans-serif;
+
+}
+
+.info-container{
+
+    height: 100%;
+}
+
+.text-color{
+    color: white;
+}
+
+.montserrat-regular{
+    font-family: "Montserrat",sans-serif;
+    color: white;
+    font-weight: 400;
+}
+
+
+.movie-container{
+    top:7rem;
+}
+
+
+.movie-cover{
+    width: 11rem;
+    height: 17rem;
+    border-radius: 10px;
+
+}
+
+
+
+
+.movie-page-img{
+    width: 100vw;
+    height: 20rem;
+    object-fit: cover;
+    filter: brightness(50%);
+}
+
+
+.overview-text{
+    font-weight: 300;
+    font-family: "Montserrat",sans-serif;
+    text-align: center;
+
+}
+
+.title-h1{
+    font-family: "Lalezar",sans-serif;
+    
+
+
+}
+
+@media (min-width: 576px) {
+    .movie-cover{
+        width: 14rem;
+        height: 22rem;
+    }
+
+
+    
+  
+}
+
+/* Medium devices (md) - ≥768px */
+@media (min-width: 768px) {
+
+    .h2-font-size{
+        font-size: 1.3rem;
+    }
+
+    .movie-container{
+    top: 10rem;
+    }
+
+    .movie-cover{
+    width: 12rem;
+    height: 20rem;
+    }
+
+    .movie-page-img{
+        height: 30rem;
+    }
+
+    .overview-text{
+    font-weight: 300;
+    font-family: "Montserrat",sans-serif;
+    text-align: left;
+
+    }
+
+
+}
+
+
+/* Large devices (lg) - ≥992px */
+@media (min-width: 992px) {
+
+    .h2-font-size{
+        font-size: 1.5rem;
+    }
+
+    .movie-cover{
+    width: 16rem;
+    height: 24rem;
+    }
+
+    .movie-page-img{
+        height: 34;
+    }
+
+
+
+  
+}
+
+/* Extra large devices (xl) - ≥1200px */
+@media (min-width: 1200px) {
+    .h2-font-size{
+        font-size: 1.9rem;
+    }
+
+    .movie-cover{
+    width: 20rem;
+    height: 28rem;
+    }
+
+    .movie-page-img{
+        height:38rem ;
+    }
+
+    .title-h1{
+      font-size: 4rem;  
+    }    
+
+
+
+  
+}
+
+/* Extra extra large devices (xxl) - ≥1400px */
+@media (min-width: 1400px) {
+    .h2-font-size{
+        font-size: 2.3;
+    }
+
+  
+}

@@ -29,7 +29,6 @@ function CloneCardFilmSlider(props) {
         const navigate = useNavigate()
 
         useEffect(() => {
-            console.log(props.activateCard);
             
             gsap.set(cardRef.current,{
                 width: props.activateCard.width + 2,
