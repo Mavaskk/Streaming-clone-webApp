@@ -49,6 +49,36 @@ export async function findById(id) {
 
 }
 
+
+export async function getReccomendedMovies(movieId) {
+    console.log(movieId);
+    
+
+    const returnList = []; 
+
+    const url = `https://api.themoviedb.org/3/movie/${movieId}/recommendations`;
+    const options = {
+    method: 'GET',
+    headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${API_KEY}`
+    }
+    };
+
+    let arrayResult = null    
+    const apiResponse = await fetch(url, options)
+    const apiData = await apiResponse.json()
+    .catch(err => console.error(err));    
+    
+    
+    arrayResult = apiData.results
+    if (arrayResult) {
+        return syncObj(arrayResult,returnList,arrayResult.length)
+        }
+
+    
+}
+
 export async function getMovieCredits(movieId) {
         const castList = [];
         const crewList = [];

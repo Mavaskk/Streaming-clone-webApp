@@ -1,12 +1,12 @@
 import { getMovieTrailerOnYt } from "../services/api"
 import { useEffect,useState  } from "react"
+import "../css/AddToListBtn.css"
 import { useParams } from "react-router-dom"
-import "../css/TrailerBtn.css"
 
 function TrailerBtn(props) {
 
-    const {id} = useParams()
 
+    const {id} = useParams()
     const [key,setKey] = useState("")
 
     const getData =  async () => {
@@ -25,7 +25,7 @@ function TrailerBtn(props) {
 
 
     return(
-        <button className="trailer-btn p-2 mt-2 mb-1"
+        <button className="trailer-btn p-2 ps-3 pe-3 mt-2 mb-1"
         onClick={() => window.open(`https://youtube.com/embed/${key}`, "_blank") }>
             Trailer            
         </button>

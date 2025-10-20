@@ -1,0 +1,80 @@
+
+
+.single-tab{
+    font-family: "Montserrat",sans-serif;
+    border: none;
+    background-color: transparent;
+    color: #ACACAC;
+    font-size: 1.1rem;
+    
+
+}
+.single-tab.active{
+    font-family: "Montserrat",sans-serif;
+    color: white;
+    border-bottom: 2px solid white;    
+    background-color: transparent;
+    
+
+}
+
+
+
+.tab-container{
+    padding-bottom: 0.3rem;
+    width: 95%;
+    margin-top: 10rem;
+    border-bottom: 1px solid white;
+
+}
+
+
+@media (min-width: 576px) {
+
+    .tab-container{
+        margin-top: 13rem;
+
+    }
+    
+  
+}
+
+/* Medium devices (md) - ≥768px */
+@media (min-width: 768px) {
+
+    .single-tab{
+        font-size: 1.3rem;
+    }
+
+    .tab-container{
+        margin-top: 0;
+
+    }
+
+}
+
+
+/* Large devices (lg) - ≥992px */
+@media (min-width: 992px) {
+
+    .single-tab{
+        font-size: 1.4rem;
+    }  
+}
+
+/* Extra large devices (xl) - ≥1200px */
+@media (min-width: 1200px) {
+    .single-tab{
+        font-size: 1.7rem;
+    }
+
+  
+}
+
+/* Extra extra large devices (xxl) - ≥1400px */
+@media (min-width: 1400px) {
+    .single-tab{
+        font-size: 1.9rem;
+    }
+  
+}

@@ -3,7 +3,11 @@ import { useLocation, useParams } from 'react-router-dom';
 import { findById, getMovieCredits } from '../services/api.js';
 import PlayMovieBtn from './PlayMovieBtn.jsx';
 import "../css/MoviePage.css"
+import { getReccomendedMovies } from '../services/api.js';
+import MovieList from './movieList.jsx';
 import TrailerBtn from './TrailerBtn.jsx';
+import AddToListBtn from './AddToListBtn.jsx';
+import TabComponent from './TabComponent.jsx';
 
 
 
@@ -14,8 +18,31 @@ function MoviePage() {
     const [crewList,setCrewList] = useState("")
     const [cast,setCast] = useState("")
     const [director,setDirector] = useState("")
+    const [idContaierRender,setIdContaierRender] = useState("")
 
     const {id} = useParams() // recupero id per fare chiamata api per i dati
+
+    useEffect(() => {
+        getData()
+        
+        
+    },[])
+
+    useEffect(() => {        
+
+        for (let i = 0; i < crewList.length; i++) {
+            if (crewList[i].job === "Director") {
+                setDirector(crewList[i])
+                
+            }
+        }        
+    },[crewList])
+
+    const returnTab = ((tabId) => {
+        setIdContaierRender(tabId)
+        
+        
+    } )
 
 
     const getData = async() => {
@@ -25,26 +52,9 @@ function MoviePage() {
         setCrewList(creditsData[1])
         setMovie(movieData)
         
-
-        
     }
 
-    useEffect(() => {
-        getData()
-        
-        
-    },[])
 
-    useEffect(() => {        
-                console.log(movie);
-
-        for (let i = 0; i < crewList.length; i++) {
-            if (crewList[i].job === "Director") {
-                setDirector(crewList[i])
-                
-            }
-        }        
-    },[crewList])
     
 
     const truncateDate = ((str) => {
@@ -54,26 +64,34 @@ function MoviePage() {
     return (
         <section>
             <img className='movie-page-img mt-5 ' src={`https://image.tmdb.org/t/p/w500${movie.backdropPath}`} alt={`${movie.title} background`} />
-            <div className='movie-container position-absolute d-flex flex-column flex-md-row align-items-center '>
-                <div>
-                    <img className='movie-cover ms-5 me-5' src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`} alt={`${movie.title} cover`} />
-                </div>
-                <div className='info-container flex-column  d-flex align-items-center align-items-md-start '>
-                    <p className='text-color h2-font-size'>{truncateDate(movie.releaseDate)}</p>
-                    <h1 className='title-h1 text-color'>{movie.title}</h1>
-                    <p className='text-color montserrat-regular h2-font-size'>By {director.name}</p>
-                    <p className='text-color w-75 overview-text'>{movie.overview}</p>     
-                    <div className='d-flex flex-row'>
-                        <PlayMovieBtn movieId = {movie.id}/> 
-                        <TrailerBtn id = {movie.id}/>            
-                        <button >s</button>               
+            <div className='mt-3 ms-5  gap-3' >
+                <TabComponent returnTab={returnTab} arrayTabs= {[{label : "Reccomendations",id : "reccomendations"},{label : "Details", id : "details"}]}/>
+                {movie !== "" && //aspetto che i dati del movie siano arrivati
+                <MovieList fetchMovieBase={getReccomendedMovies} movieId={movie.id}/>}
+  
+            </div>              
+            <div className='w-100 movie-container position-absolute  '>
+                <div className=' d-flex flex-column flex-md-row align-items-center '>
+                    <div>
+                        <img className='movie-cover ms-5 me-5' src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`} alt={`${movie.title} cover`} />
                     </div>
-            
+                    <div className='info-container flex-column  d-flex align-items-center align-items-md-start '>
+                        <p className='text-color h2-font-size'>{truncateDate(movie.releaseDate)}</p>
+                        <h1 className='title-h1 text-color'>{movie.title}</h1>
+                        <p className='text-color montserrat-regular h2-font-size'>By {director.name}</p>
+                        <p className='text-color w-75 overview-text d-none d-md-inline'>{movie.overview}</p>     
+                        <div className='d-flex flex-row gap-3'>
+                            <PlayMovieBtn /> 
+                            <TrailerBtn id = {movie.id}/>            
+                            <AddToListBtn/>              
+                        </div>
+                    
+                    </div>                    
+
                 </div>
-
-
+          
             </div>
-            <p></p>
+
         </section>
 
         )
