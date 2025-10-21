@@ -1,0 +1,19 @@
+.btn-container{
+    background-color: #181A21;
+    border-radius: 0px 0px 10px 10px;
+    outline: 2px solid white;
+    width: 100%;
+    box-sizing: border-box;
+    /* left: 0rem;     */
+}
+
+
+
+.cta-btn-card{
+    border-radius: 12px;
+    background: #272829;
+    font-family: "Montserrat";
+    border: none;
+    color: white;
+    
+}

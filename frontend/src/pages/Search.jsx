@@ -26,13 +26,13 @@ function Search() {
             <SearchMovieInput callApi = {searchMovie}/>
 
             
-            <ul className="row mt-4 justify-content-center container">
+            <ul className="row mt-4 justify-content-center container-fluid ">
                 {searchMovieList.length === 0 && <h2 >Trending this week:</h2>}
-                {searchMovieList.length === 0 ? (trendingMovieList.map((obj => ( 
-                    <MovieCard releaseDate={obj.releaseDate} title={obj.title} backdropPath ={obj.backdropPath} posterPath ={obj.posterPath} voteAverage = {obj.voteAverage} key={obj.id}/>
+                {searchMovieList.length === 0 ? (trendingMovieList.map(((obj,index) => ( 
+                    <MovieCard zIndex={trendingMovieList.length-index}  releaseDate={obj.releaseDate} title={obj.title} backdropPath ={obj.backdropPath} posterPath ={obj.posterPath} voteAverage = {obj.voteAverage} key={obj.id} id={obj.id}/>
                 ))))
-                : (searchMovieList.map((obj) => (
-                    <MovieCard releaseDate={obj.releaseDate} title={obj.title} backdropPath ={obj.backdropPath} posterPath ={obj.posterPath} voteAverage = {obj.voteAverage} key={obj.id}/>
+                : (searchMovieList.map((obj,index) => (
+                    <MovieCard zIndex={searchMovieList.length-index}  releaseDate={obj.releaseDate} title={obj.title} backdropPath ={obj.backdropPath} posterPath ={obj.posterPath} voteAverage = {obj.voteAverage} key={obj.id} id={obj.id}/>
                 )))}
             </ul>
 

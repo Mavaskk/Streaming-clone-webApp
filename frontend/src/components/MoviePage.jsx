@@ -62,9 +62,9 @@ function MoviePage() {
     })
 
     return (
-        <section>
+        <section className='w-100'>
             <img className='movie-page-img mt-5 ' src={`https://image.tmdb.org/t/p/w500${movie.backdropPath}`} alt={`${movie.title} background`} />
-            <div className='mt-3 ms-5  gap-3' >
+            <div className='mt-3 gap-3 container-fluid' >
                 <TabComponent returnTab={returnTab} arrayTabs= {[{label : "Reccomendations",id : "reccomendations"},{label : "Details", id : "details"}]}/>
                 {movie !== "" && //aspetto che i dati del movie siano arrivati
                 <MovieList fetchMovieBase={getReccomendedMovies} movieId={movie.id}/>}
@@ -81,7 +81,7 @@ function MoviePage() {
                         <p className='text-color montserrat-regular h2-font-size'>By {director.name}</p>
                         <p className='text-color w-75 overview-text d-none d-md-inline'>{movie.overview}</p>     
                         <div className='d-flex flex-row gap-3'>
-                            <PlayMovieBtn /> 
+                            <PlayMovieBtn movieId = {movie.id} /> 
                             <TrailerBtn id = {movie.id}/>            
                             <AddToListBtn/>              
                         </div>

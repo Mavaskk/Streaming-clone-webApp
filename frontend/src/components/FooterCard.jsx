@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { gsap } from "gsap";
 import { useEffect, useRef, useState } from 'react';
 import PlayMovieBtn from './PlayMovieBtn';
+import "../css/FooterCard.css"
 
 
 
@@ -11,10 +12,9 @@ function FooterCard(props) {
 
 
     const [cardHoverStatus,setCardHoverStatus] = useState(false)
-    const footerContainer = useRef(null)
 
     // useEffect(() => {
-    //     gsap.set(footerContainer.current,{
+    //     gsap.set(props.ref.current,{
     //         opacity:0,
     //     })
         
@@ -49,7 +49,8 @@ function FooterCard(props) {
 
 
     return (
-        <div  onMouseEnter={ () => {
+        <div className="btn-container d-flex flex-row justify-content-center gap-2 align-items-center position-absolute "
+            onMouseEnter={ () => {
                 cardHoverStatus && console.log("entrato")
             }
                 
@@ -62,7 +63,7 @@ function FooterCard(props) {
             
             }
         
-        ref={footerContainer} className="btn-container d-flex flex-row justify-content-center gap-2 align-items-center ">
+        ref={props.ref} >
             <button onClick={() => console.log("click")
             } className="cta-btn-card p-2 mt-2 mb-1"><FontAwesomeIcon icon={faPlus} /></button>
             {/* aggiungere condizione che mostra il play solo se film supportato da api */}
