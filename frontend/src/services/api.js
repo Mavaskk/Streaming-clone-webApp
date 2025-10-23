@@ -1,5 +1,6 @@
 const API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMWNkNmFlNmVmMzYxYTJkM2ZmMmM2ZDY5MzBlNDJhMCIsIm5iZiI6MTc1NzUyMDc5Ni4xNiwic3ViIjoiNjhjMWEzOWM5OGMxN2VhODZkMDZhZTI3Iiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.u1K8SRHVSAMNhKXr9BNAg1SBswZ2cNkZ8IQ8tjTLOgE";
 
+
 function syncObj (arrayResult,returnList,searchCount) {
     for (let i = 0; i < searchCount; i++) {
             const movie = {};  
@@ -51,7 +52,6 @@ export async function findById(id) {
 
 
 export async function getReccomendedMovies(movieId) {
-    console.log(movieId);
     
 
     const returnList = []; 
@@ -105,7 +105,7 @@ export async function getMovieCredits(movieId) {
             }
             castList.push(castMember)            
         }
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 10; i++) {
             const crewMember = {
                 id: crew[i].id,
                 job: crew[i].job,

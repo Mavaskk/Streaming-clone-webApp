@@ -39,7 +39,7 @@ function MovieCard(props) {
 		})
 
 	return (
-			<div ref={divRef} className="col-6 col-md-4 col-lg-3  mt-3 col-xl-3  position-relative">
+			<div ref={divRef} className="col-6 col-md-4 col-lg-3  mt-3 col-xl-3 col-xxl-2  position-relative">
 				<li ref={liRef} className="movie-card "
 					onMouseLeave={() => {
 						setHoverCardId(null)
@@ -80,8 +80,8 @@ function MovieCard(props) {
 						}} />
 						<div ref={hoverContainer}  className="hover-container">
 							<div className="position-absolute bottom-0">
-								<p className="ms-1 title-hover mb-0 ">{props.title}</p>   
-								{props.releaseDate  ? (<button className="btn-releaseDate">{props.releaseDate}</button>)
+								<p className="ms-2 title-hover mb-0 ">{props.title}</p>   
+								{props.releaseDate  ? (<button className="btn-releaseDate ms-2">{props.releaseDate}</button>)
 								: (<button className="btn-releaseDate">Not found</button>)}
 								
 							</div>

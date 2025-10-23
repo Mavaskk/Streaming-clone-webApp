@@ -1,0 +1,69 @@
+
+
+.card-container{
+    background-color: #272829;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.card-container img{
+    object-fit: cover;
+    width: 100%;
+    height: 15rem;
+    border-radius: 10px 10px 0px 0px;
+
+}
+
+
+
+.text-size{
+
+}
+
+.font-base{
+    color: white;
+    font-family: "Montserrat";
+}
+
+
+
+
+@media (min-width: 576px) {
+
+.nav-link{
+    font-size: 1rem;
+
+}
+
+    
+  
+}
+
+/* Medium devices (md) - ≥768px */
+@media (min-width: 768px) {
+.nav-link{
+    font-size: 1.2rem;
+    
+}
+
+
+}
+
+
+/* Large devices (lg) - ≥992px */
+@media (min-width: 992px) {
+
+  
+}
+
+/* Extra large devices (xl) - ≥1200px */
+@media (min-width: 1200px) {
+
+  
+}
+
+/* Extra extra large devices (xxl) - ≥1400px */
+@media (min-width: 1400px) {
+
+  
+}

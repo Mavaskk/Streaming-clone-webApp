@@ -8,6 +8,7 @@ import MovieList from './movieList.jsx';
 import TrailerBtn from './TrailerBtn.jsx';
 import AddToListBtn from './AddToListBtn.jsx';
 import TabComponent from './TabComponent.jsx';
+import ActorCard from './ActorCard.jsx';
 
 
 
@@ -18,7 +19,7 @@ function MoviePage() {
     const [crewList,setCrewList] = useState("")
     const [cast,setCast] = useState("")
     const [director,setDirector] = useState("")
-    const [idContaierRender,setIdContaierRender] = useState("")
+    const [idContaierRender,setIdContaierRender] = useState("reccomendations") // lo setto al tab di default
 
     const {id} = useParams() // recupero id per fare chiamata api per i dati
 
@@ -35,6 +36,11 @@ function MoviePage() {
                 setDirector(crewList[i])
                 
             }
+            console.log("diret non trovato");
+            console.log(crewList);
+            
+            
+            
         }        
     },[crewList])
 
@@ -66,8 +72,18 @@ function MoviePage() {
             <img className='movie-page-img mt-5 ' src={`https://image.tmdb.org/t/p/w500${movie.backdropPath}`} alt={`${movie.title} background`} />
             <div className='mt-3 gap-3 container-fluid' >
                 <TabComponent returnTab={returnTab} arrayTabs= {[{label : "Reccomendations",id : "reccomendations"},{label : "Details", id : "details"}]}/>
-                {movie !== "" && //aspetto che i dati del movie siano arrivati
-                <MovieList fetchMovieBase={getReccomendedMovies} movieId={movie.id}/>}
+                {(idContaierRender == "reccomendations" && movie !== "") && //two conditions rendering 
+                    <MovieList fetchMovieBase={getReccomendedMovies} movieId={movie.id}/>                    
+                }
+                {(idContaierRender == "details" && movie !== "") && 
+                    <ul className='row p-0 ms-2 me-2'>
+                        {cast.map((obj) => (
+                            <ActorCard key={obj.id} character={obj.character} name={obj.name} profilPath={obj.profilPath}/>
+                            
+                        ))}
+                    </ul>
+
+                }
   
             </div>              
             <div className='w-100 movie-container position-absolute  '>

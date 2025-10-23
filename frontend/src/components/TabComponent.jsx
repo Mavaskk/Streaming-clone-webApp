@@ -9,7 +9,7 @@ function TabComponent(props) {
 
 
     return (
-        <div className="tab-container">
+        <div className="tab-container mb-4">
             {props.arrayTabs.map((tab) => (
                 <button key={tab.id} className={`single-tab ${activeTab === tab.id ? "active" : ""}`} onClick={() => (setActiveTab(tab.id),props.returnTab(tab.id))}>{tab.label}</button>
             ))}

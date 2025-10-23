@@ -31,6 +31,7 @@ function SearchMovieInput(props) {
             <div className="input-wrapper">
                 <FontAwesomeIcon className="search-icon" icon={faMagnifyingGlass} />
                 <input
+                className="input-search-bar"
                 autoFocus
                 type="text"
                 placeholder="Search a movie"

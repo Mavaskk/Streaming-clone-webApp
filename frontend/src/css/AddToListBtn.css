@@ -5,3 +5,19 @@
     border: none;
     color: white;
 }
+
+/* 
+@media (min-width: 1200px) {
+    .trailer-btn {
+        font-size: rem;
+    }
+
+  
+}
+
+@media (min-width: 1400px) {
+    .add-to-list-btn{
+        font-size: 4rem;
+    }
+  
+} */

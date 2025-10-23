@@ -1,6 +1,6 @@
 
 
-input{
+.input-search-bar{
     background-color: #181A21;
     border: none;
     color: #CBC9C9;;
@@ -13,7 +13,7 @@ form{
     margin-top: 1rem;
 }
 
-input:focus{
+.input-search-bar:focus{
     outline: none;
 
 

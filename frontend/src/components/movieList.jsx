@@ -32,10 +32,10 @@ function MovieList(props) {
 
     return (
 
-            <div className="container-fluid d-flex justify-content-center align-items-center flex-column ">
+            <div className="container-fluid ps-3 pe-3 d-flex justify-content-center align-items-center flex-column ">
 
                 
-                <ul className="row mt-4 p-0  ">
+                <ul className="row p-0  ">
                     {bookList !== "" &&   
                         bookList.map((obj,index) => (
                         <MovieCard zIndex={bookList.length-index} releaseDate={obj.releaseDate} title={obj.title} backdropPath ={obj.backdropPath} posterPath ={obj.posterPath} voteAverage = {obj.voteAverage} key={obj.id} id={obj.id}/>

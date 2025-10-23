@@ -90,7 +90,7 @@ function CloneCardFilmSlider(props) {
 
                         <div ref={hoverContainer}  className="hover-container">
                             <div className="position-absolute bottom-0">
-                                <p className="ms-1 title-hover mb-0 ">negro</p>   
+                                <p className="ms-1 title-hover mb-0 ">{props.title}</p>   
                                 {props.releaseDate  ? (<button className="btn-releaseDate">{props.releaseDate}</button>)
                                 : (<button className="btn-releaseDate">Not found</button>)}
                                 
