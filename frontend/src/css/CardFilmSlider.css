@@ -3,6 +3,7 @@
     background-color: #181A21;
     padding: 1rem;
     border-radius: 30px;
+    z-index: 999;
 }
 .swiper-button-next svg{
     color: white;
@@ -11,6 +12,8 @@
     color: white;
 }
 .swiper-button-prev{
+    z-index: 999;
+
     background-color: #181A21;
     padding: 1rem;
     border-radius: 30px;

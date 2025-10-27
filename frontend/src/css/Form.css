@@ -1,0 +1,33 @@
+.btn-form{
+    background-color:#181A21 ;
+    color: white;
+    font-family: "Montserrat",sans-serif;
+    border: none;
+    border-radius: 7px ;
+    width: 10rem;
+
+}
+
+
+
+
+.form-input{
+    border-radius: 5px;
+
+
+}
+
+.form-label{
+    color: white;
+    font-family: "Montserrat",sans-serif,
+}
+
+
+
+.form-container{
+
+    width: 30rem;
+    border-radius: 34px;
+    background: var(--2nd-coloro, #272829);
+    height: 18rem;
+}

@@ -23,10 +23,10 @@ function App() {
 
 	return (
 		<>
-		<NavBar></NavBar>
+
 		
 			<AuthContext.Provider value={{isAuthenticated,setIsAuthenticated}}>
-
+				<NavBar></NavBar>
 					<Routes>
 						<Route element={<PrivateRoute/>}>
 							<Route path='/' element={ <Home/>}></Route>

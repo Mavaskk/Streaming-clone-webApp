@@ -1,5 +1,4 @@
 import "../css/MovieCardComp.css"
-import "../css/CardFilmSlider.css"
 import { useState,useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"

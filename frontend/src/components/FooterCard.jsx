@@ -64,10 +64,10 @@ function FooterCard(props) {
             }
         
         ref={props.ref} >
+            <PlayMovieBtn movieId={props.movieId}/>
             <button onClick={() => console.log("click")
             } className="cta-btn-card p-2 mt-2 mb-1"><FontAwesomeIcon icon={faPlus} /></button>
             {/* aggiungere condizione che mostra il play solo se film supportato da api */}
-            <PlayMovieBtn movieId={props.movieId}/>
         </div>
     )
 }

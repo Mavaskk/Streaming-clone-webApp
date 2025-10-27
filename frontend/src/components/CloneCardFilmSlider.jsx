@@ -19,7 +19,7 @@ function CloneCardFilmSlider(props) {
         : "../assets/movie-placehoder.jpg"; 
 
 
-    
+        const [cardHoverStatus,setCardHoverStatus] = useState(false)
 
         const hoverContainer = useRef(null)
 
@@ -29,14 +29,17 @@ function CloneCardFilmSlider(props) {
         const navigate = useNavigate()
 
         useEffect(() => {
+        
             
             gsap.set(cardRef.current,{
                 width: props.activateCard.width + 2,
                 height: props.activateCard.height + 2,
-                top: props.activateCard.y - props.activateCard.sectionY ,
+                top: -props.activateCard.height , // faccio meno cosi mi parte dall'inzio della card e va sopra
                 left: props.activateCard.x - props.activateCard.sectionX - 14,
+                zIndex: 2 // per farla comparire sopra a card originale
 
             })
+            setCardHoverStatus(true)
             
         },[props.activateCard])
 
@@ -57,11 +60,15 @@ function CloneCardFilmSlider(props) {
                         gsap.set(cardRef.current,{ //setto direttamente lo stile hover da qua
                             borderColor:"#181A21",
                             borderRadius:"10px",
-                            border:"2px solid"
+                            border:"2px solid",
+                            scale:1,
+                            zIndex:0
                         });
                         gsap.to(hoverContainer.current,{
                             opacity:0,
                         });
+                        setCardHoverStatus(false)
+
 
                 }}>
                 <div ref={cardRef} className="movie-card position-relative">
@@ -79,11 +86,9 @@ function CloneCardFilmSlider(props) {
                         gsap.set(cardRef.current,{ //setto direttamente lo stile hover da qua
                             borderColor:"white",
                             borderRadius:" 10px 0px 0px 10px",
-                            border:"2px solid"
+                            border:"2px solid",
+                            scale:1.1,
 
-                        });
-                        gsap.to(hoverContainer.current,{
-                            opacity:1,
                         });
                         }} 
                         src={posterSrc}  alt={props.title} />
@@ -102,8 +107,9 @@ function CloneCardFilmSlider(props) {
                             </div>
                             
                              
-                        </div>     
-                        <FooterCard  movieId={props.id}/>                    
+                        </div>    
+                        {cardHoverStatus && <FooterCard movieId={props.id}/>  } 
+                                          
 
                                       
                 </div>

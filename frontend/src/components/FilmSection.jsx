@@ -10,6 +10,7 @@ import { gsap } from "gsap";
 
 
 // Import Swiper styles
+import "../css/CardFilmSlider.css"
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { height, width } from "@fortawesome/free-solid-svg-icons/fa0"

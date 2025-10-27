@@ -105,7 +105,7 @@ export async function getMovieCredits(movieId) {
             }
             castList.push(castMember)            
         }
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < crew.length; i++) {
             const crewMember = {
                 id: crew[i].id,
                 job: crew[i].job,
