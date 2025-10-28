@@ -8,9 +8,10 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import MovieStreamingPage from './components/MovieStreamingPage'
 import MoviePage from './components/MoviePage'
 import { useState,useEffect } from 'react'
-import NotAuthenticatedPage from './pages/NotAuthenticatedPage'
 import { PrivateRoute } from './components/PrivateRoute'
 import { createContext, useContext } from 'react'
+import LoginForm from './components/LoginForm'
+import SignUpForm from './components/SignUpForm'
 
 	
 export const AuthContext = createContext()
@@ -23,8 +24,6 @@ function App() {
 
 	return (
 		<>
-
-		
 			<AuthContext.Provider value={{isAuthenticated,setIsAuthenticated}}>
 				<NavBar></NavBar>
 					<Routes>
@@ -34,13 +33,11 @@ function App() {
 							<Route path='/search' element={ <Search/>}></Route>
 							<Route path='/movie/streaming/:id' element={ <MovieStreamingPage/>}></Route>
 							<Route path='/movie/:id' element={ <MoviePage/>}></Route>
-
-
 						</Route>
 
-						<Route path='/authentication' element={<NotAuthenticatedPage/>}  ></Route>
+						<Route path='/authentication/login' element={<LoginForm/>}  ></Route>
+						<Route path='/authentication/signup' element={<SignUpForm/>}  ></Route>
 						{/* <Route path='*' element={ <Search/>}></Route>  AGGIUNGERE PAGINA DEL NOT FOUND ERROR 404 */}
-
 					</Routes>				
 			</AuthContext.Provider>
 

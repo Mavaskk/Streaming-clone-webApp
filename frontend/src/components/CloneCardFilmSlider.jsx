@@ -1,6 +1,6 @@
 import "../css/MovieCardComp.css"
 import "../css/CardFilmSlider.css"
-import { useState,useRef, useEffect } from "react";
+import { useState,useRef, useEffect, useLayoutEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -28,7 +28,7 @@ function CloneCardFilmSlider(props) {
         const cardRef = useRef(null)
         const navigate = useNavigate()
 
-        useEffect(() => {
+        useLayoutEffect(() => { //uso layout almeno lo fa prima del render
         
             
             gsap.set(cardRef.current,{
@@ -50,10 +50,11 @@ function CloneCardFilmSlider(props) {
 
     return (
             <li ref={liRef} className="li-card-movie position-absolute "
-
-            
-            
+        
                 onMouseLeave={() => {
+                        gsap.to(liRef.current,{
+                            opacity:0,
+                        })
                         gsap.set(imgRef.current,{
                             filter:"brightness(100%)",
                         });
@@ -68,37 +69,42 @@ function CloneCardFilmSlider(props) {
                             opacity:0,
                         });
                         setCardHoverStatus(false)
-
-
+                        props.returnStatus(null)
                 }}>
                 <div ref={cardRef} className="movie-card position-relative">
                     <img ref={imgRef}  
                         onClick={() => (navigate(`/movie/${props.id}` ))}
 
+                        onMouseEnter={() => { 
+                            gsap.to(liRef.current,{
+                                opacity:1,
+                            });
+                            gsap.set(imgRef.current,{ //setto direttamente lo stile hover da qua
+                                filter:"brightness(20%)",
 
-                        onMouseEnter={() => {
-                        gsap.set(imgRef.current,{ //setto direttamente lo stile hover da qua
-                            filter:"brightness(20%)",
+                            });
+                            gsap.to(hoverContainer.current,
+                                {
+                                opacity:1,
+                                }
+                            )
+                            
 
-                        });
-                        
+                            gsap.set(cardRef.current,{ //setto direttamente lo stile hover da qua
+                                borderColor:"white",
+                                borderRadius:" 10px 0px 0px 10px",
+                                border:"2px solid",
+                                scale:1.1,
+                                zIndex:3,
+                            });
 
-                        gsap.set(cardRef.current,{ //setto direttamente lo stile hover da qua
-                            borderColor:"white",
-                            borderRadius:" 10px 0px 0px 10px",
-                            border:"2px solid",
-                            scale:1.1,
-
-                        });
                         }} 
                         src={posterSrc}  alt={props.title} />
-
                         <div ref={hoverContainer}  className="hover-container">
                             <div className="position-absolute bottom-0">
                                 <p className="ms-1 title-hover mb-0 ">{props.title}</p>   
                                 {props.releaseDate  ? (<button className="btn-releaseDate">{props.releaseDate}</button>)
-                                : (<button className="btn-releaseDate">Not found</button>)}
-                                
+                                : (<button className="btn-releaseDate">Not found</button>)}                                
                             </div>
                         
                             <div className="review-container position-absolute text-truncate d-flex flex-row  ">

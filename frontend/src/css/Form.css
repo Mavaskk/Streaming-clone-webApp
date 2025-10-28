@@ -5,7 +5,17 @@
     border: none;
     border-radius: 7px ;
     width: 10rem;
+    width: 100%;
+    
 
+}
+
+
+.btn-secondary{
+    background: none;
+    border: none;
+    color: white;
+    margin-top: 1rem;
 }
 
 
@@ -13,6 +23,8 @@
 
 .form-input{
     border-radius: 5px;
+    font-family: "Montserrat",sans-serif;
+
 
 
 }
@@ -29,5 +41,5 @@
     width: 30rem;
     border-radius: 34px;
     background: var(--2nd-coloro, #272829);
-    height: 18rem;
+    /* height: 18rem; */
 }

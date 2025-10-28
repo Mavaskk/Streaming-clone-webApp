@@ -88,6 +88,7 @@
 		const endPoint = "/user/register";
 		const request = createRequest(user);
 
+		
 		return sendRequest(endPoint, request);
 	}
 
@@ -100,6 +101,8 @@
 			return response.json();
 		})
 		.then(data => {
+			console.log(data);
+			
 			// Qui potrebbe esserci validazione del contenuto
 			return data;
 		});

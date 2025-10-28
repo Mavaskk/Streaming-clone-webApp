@@ -23,11 +23,11 @@ function MoviePage() {
 
     const {id} = useParams() // recupero id per fare chiamata api per i dati
 
+
     useEffect(() => {
         getData()
         
-        
-    },[])
+    },[id])
 
     useEffect(() => {        
 
@@ -36,9 +36,6 @@ function MoviePage() {
                 setDirector(crewList[i])
                 
             }
-            console.log("diret non trovato");
-            console.log(crewList);
-            
             
             
         }        

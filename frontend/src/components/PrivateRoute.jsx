@@ -7,12 +7,12 @@ export const PrivateRoute = () => {
 
 
   
-  const {isAuthenticated, setIsAuthenticated} = useContext(AuthContext)
+  const {isAuthenticated, setIsAuthenticated} = useContext(AuthContext);
 
 
   
 
     return (
-        isAuthenticated ? <Outlet/> : <Navigate to='/authentication'/>
+        isAuthenticated ? <Outlet/> : <Navigate to='/authentication/login'/>
     )
 }

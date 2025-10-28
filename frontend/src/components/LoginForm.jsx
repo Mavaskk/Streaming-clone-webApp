@@ -11,6 +11,7 @@ function LoginForm(props) {
 
     const navigate = useNavigate()
 
+
     const {isAuthenticated, setIsAuthenticated} = useContext(AuthContext)
 
     useEffect(() => { // se utente gia loggato mandi alla home
@@ -19,6 +20,11 @@ function LoginForm(props) {
         }
     }, [isAuthenticated, navigate]);
 
+    const secondatyBtnSubmit = (e) => {
+        console.log(e);
+        ;props.updateFormStatus("singup")
+        
+    }
 
     const sendLoginData = (async(e) => {
         e.preventDefault()
@@ -58,8 +64,8 @@ function LoginForm(props) {
                         (e) => (setPassword(e.target.value))
                     } 
                     type="password" name=""  className="mb-3 form-input" />
-                    <button onClick={sendLoginData} className="btn-form p-2">Log in</button>
-                    <button >Or sign in with</button>
+                    <button  onClick={sendLoginData} className="btn-form p-2">Log in</button>
+                    <button onClick={() => (navigate("/authentication/signup"))} className="btn-secondary" >Or sign in with</button>
                 </form>    
         </div>
 

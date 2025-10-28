@@ -4,6 +4,8 @@ import { gsap } from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import FooterCard from "./FooterCard";
+import { useNavigate } from "react-router-dom";
+
 
 
 function MovieCard(props) {
@@ -23,6 +25,8 @@ function MovieCard(props) {
 		const imgRef = useRef(null)
 		const footerRef = useRef(null)
 		const divRef = useRef(null)
+        const navigate = useNavigate()
+
 
 		const [hoverCardId,setHoverCardId] = useState("")
 
@@ -61,6 +65,11 @@ function MovieCard(props) {
 					}}
 				>
 					<img ref={imgRef} src={posterSrc}  alt={props.title} 
+						onClick={() => {
+							navigate(`/movie/${props.id}` );
+							console.log("click");
+							
+						}}
 						onMouseEnter={() => {
 							gsap.to(hoverContainer.current,{
 							opacity:1,

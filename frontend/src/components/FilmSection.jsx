@@ -30,10 +30,7 @@ function FilmSection(props) {
     const [filmList,setFilmList] = useState([])
     const [activateCard,setActivateCard] = useState({})
 
-    // useEffect(() => {
-    //     sectionRef.current
 
-    // })
     
 
     const passHoverState = (cardId,cardWidth,cardHeight,cardX,cardY) => {
@@ -48,9 +45,12 @@ function FilmSection(props) {
             y: cardY,
             sectionX:sectionX,
             sectiony:sectionY,
-        })
+        })     
+    }
 
-               
+    const returnStatus  = (status) => {
+        setActivateCard(status)
+        
     }
 
     useEffect(() => {
@@ -102,7 +102,7 @@ function FilmSection(props) {
                         )}            
                     </Swiper>  
                         {activateCard !==  null && (filmList.map(obj => 
-                            (obj.id === activateCard.id && (<CloneCardFilmSlider activateCard={activateCard} passHoverState={passHoverState} releaseDate={obj.releaseDate} title={obj.title} backdropPath ={obj.backdropPath} posterPath ={obj.posterPath} voteAverage = {obj.voteAverage} key={obj.id} id={obj.id}/>)
+                            (obj.id === activateCard.id && (<CloneCardFilmSlider activateCard={activateCard} returnStatus={returnStatus} passHoverState={passHoverState} releaseDate={obj.releaseDate} title={obj.title} backdropPath ={obj.backdropPath} posterPath ={obj.posterPath} voteAverage = {obj.voteAverage} key={obj.id} id={obj.id}/>)
                         ))
                         )}                                    
 

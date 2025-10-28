@@ -24,12 +24,6 @@ function CardFilmSlider(props) {
         const cardRef = useRef(null)
 
 
-
-
-        const truncateVote = ((number) => {
-            return new String(number).substring(0,3) //converto in stringa per fare substring
-        })
-
     return (
             <li ref={liRef} className="li-card-movie  ms-2 ms-lg-3 ms-xl-4 me-2 me-lg-3 me-xl-4 mt-4  "
 
@@ -43,9 +37,6 @@ function CardFilmSlider(props) {
                             borderColor:"#181A21",
                             borderRadius:"10px",
                             border:"2px solid"
-                        });
-                        gsap.to(hoverContainer.current,{
-                            opacity:0,
                         });
                 }}>
                 <div ref={cardRef} className="movie-card position-relative">
@@ -68,27 +59,11 @@ function CardFilmSlider(props) {
                                 border:"2px solid"
 
                             });
-                            gsap.to(hoverContainer.current,{
-                                opacity:1,
-                            });
+
                         }} 
                     src={posterSrc}  alt={props.title} />
 
-                        <div ref={hoverContainer}  className="hover-container">
-                            <div className="position-absolute bottom-0">
-                                <p className="ms-1 title-hover mb-0 ">{props.title}</p>   
-                                {props.releaseDate  ? (<button className="btn-releaseDate">{props.releaseDate}</button>)
-                                : (<button className="btn-releaseDate">Not found</button>)}
-                                
-                            </div>
-                        
-                            <div className="review-container position-absolute text-truncate d-flex flex-row  ">
-                                <p className="m-0 vote-average text-truncate"> {truncateVote(props.voteAverage)}{} </p>
-                                <FontAwesomeIcon icon={faStar} />
-                            </div>
-                            
-                             
-                        </div>     
+                
                                       
                 </div>
                 

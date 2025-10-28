@@ -17,7 +17,7 @@ function MovieList(props) {
 
         
 
-    },[])
+    },[props.movieId])
 
 
     const getData = ( async() => {
