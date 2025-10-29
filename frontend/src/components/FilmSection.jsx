@@ -23,6 +23,8 @@ import { height, width } from "@fortawesome/free-solid-svg-icons/fa0"
 
 function FilmSection(props) {
 
+    
+
     const [saveIdCardToScale,setSaveIdCardToScale] = useState("")
     const sectionRef = useRef(null)
 

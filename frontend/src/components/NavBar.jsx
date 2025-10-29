@@ -16,7 +16,7 @@ function NavBar() {
                 <Link className="nav-link"  to="/">Logo</Link>
                 {isAuthenticated && <>
                     <Link className="nav-link"  to="/">New and Popular</Link>
-                    <Link className="nav-link" to="/favorites">Favorites</Link>                
+                    <Link className="nav-link" to="/favorites">WatchList</Link>                
                 </>}
 
             </div>    

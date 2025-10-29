@@ -17,6 +17,7 @@ function MoviePage() {
 
     const [movie,setMovie] = useState("")
     const [crewList,setCrewList] = useState("")
+    const [reccomendationList,setReccomendationList] = useState([])
     const [cast,setCast] = useState("")
     const [director,setDirector] = useState("")
     const [idContaierRender,setIdContaierRender] = useState("reccomendations") // lo setto al tab di default
@@ -26,6 +27,8 @@ function MoviePage() {
 
     useEffect(() => {
         getData()
+        console.log(id);
+        
         
     },[id])
 
@@ -54,6 +57,13 @@ function MoviePage() {
         setCast(creditsData[0])
         setCrewList(creditsData[1])
         setMovie(movieData)
+        const request = await getReccomendedMovies(id)
+        
+        setReccomendationList([...request])
+        console.log(reccomendationList);
+        
+        
+
         
     }
 
@@ -69,8 +79,8 @@ function MoviePage() {
             <img className='movie-page-img mt-5 ' src={`https://image.tmdb.org/t/p/w500${movie.backdropPath}`} alt={`${movie.title} background`} />
             <div className='mt-3 gap-3 container-fluid' >
                 <TabComponent returnTab={returnTab} arrayTabs= {[{label : "Reccomendations",id : "reccomendations"},{label : "Details", id : "details"}]}/>
-                {(idContaierRender == "reccomendations" && movie !== "") && //two conditions rendering 
-                    <MovieList fetchMovieBase={getReccomendedMovies} movieId={movie.id}/>                    
+                {(idContaierRender == "reccomendations" && reccomendationList.length > 0) && //two conditions rendering 
+                    <MovieList list = {reccomendationList} />                    
                 }
                 {(idContaierRender == "details" && movie !== "") && 
                     <ul className='row p-0 ms-2 me-2'>

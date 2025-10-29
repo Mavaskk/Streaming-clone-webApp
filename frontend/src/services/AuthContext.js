@@ -101,7 +101,6 @@
 			return response.json();
 		})
 		.then(data => {
-			console.log(data);
 			
 			// Qui potrebbe esserci validazione del contenuto
 			return data;

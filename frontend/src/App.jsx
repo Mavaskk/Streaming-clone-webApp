@@ -9,23 +9,25 @@ import MovieStreamingPage from './components/MovieStreamingPage'
 import MoviePage from './components/MoviePage'
 import { useState,useEffect } from 'react'
 import { PrivateRoute } from './components/PrivateRoute'
-import { createContext, useContext } from 'react'
+import { createContext,  } from 'react'
 import LoginForm from './components/LoginForm'
 import SignUpForm from './components/SignUpForm'
 
 	
 export const AuthContext = createContext()
+export const watchListContext = createContext()
 
 function App() {
 
-
+	const [watchList,setWatchList] = useState([])
 	const [isAuthenticated,setIsAuthenticated] = useState(() => {return !!localStorage.getItem("__nctoken__")}) //!! trasforma valore in bool e per capire se utente gia loggato
-
+	// per il logout controllare quando il valore sul local storage cambia cambio isAuthenticated
 
 	return (
 		<>
 			<AuthContext.Provider value={{isAuthenticated,setIsAuthenticated}}>
-				<NavBar></NavBar>
+				<NavBar></NavBar>		
+				<watchListContext.Provider value={{watchList,setWatchList}}>
 					<Routes>
 						<Route element={<PrivateRoute/>}>
 							<Route path='/' element={ <Home/>}></Route>
@@ -38,7 +40,11 @@ function App() {
 						<Route path='/authentication/login' element={<LoginForm/>}  ></Route>
 						<Route path='/authentication/signup' element={<SignUpForm/>}  ></Route>
 						{/* <Route path='*' element={ <Search/>}></Route>  AGGIUNGERE PAGINA DEL NOT FOUND ERROR 404 */}
-					</Routes>				
+					</Routes>									
+				</watchListContext.Provider>
+
+
+
 			</AuthContext.Provider>
 
 		 

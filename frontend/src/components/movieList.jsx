@@ -1,5 +1,5 @@
 
-import { useState ,useEffect} from "react";
+import { useState ,useEffect} from "react"; 
 import {searchMovieTMDB,trandingMovieTMDB} from "../services/api.js"
 import MovieCard from "../components/MovieCard.jsx";
 import  "../css/Search.css"
@@ -9,23 +9,19 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 function MovieList(props) {
 
 
-    const [bookList,setBookList] = useState("")
+    const [bookList,setBookList] = useState(props.list ? (props.list) : (""))
 
     useEffect(() => {
-        getData()
-        
-
-        
-
-    },[props.movieId])
+        setBookList(props.list)
+    },[props.list])
 
 
-    const getData = ( async() => {
-        setBookList(await props.fetchMovieBase(props.movieId)) 
+    // const getData = ( async() => {
+    //     setBookList(await props.fetchMovieBase(props.movieId)) 
 
 
         
-    })
+    // })
 
 
 

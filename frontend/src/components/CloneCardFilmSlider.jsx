@@ -114,7 +114,7 @@ function CloneCardFilmSlider(props) {
                             
                              
                         </div>    
-                        {cardHoverStatus && <FooterCard movieId={props.id}/>  } 
+                        {cardHoverStatus && <FooterCard releaseDate={props.releaseDate} title={props.title} backdropPath ={props.backdropPath} posterPath ={props.posterPath} voteAverage = {props.voteAverage} key={props.id} id={props.id} />  } 
                                           
 
                                       

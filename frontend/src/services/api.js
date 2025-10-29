@@ -95,7 +95,6 @@ export async function getMovieCredits(movieId) {
         .catch(err => console.error(err));  
         const cast = apiData.cast
         const crew = apiData.crew
-        console.log(cast);
         
         for (let i = 0; i < cast.length; i++) {
             const castMember = {

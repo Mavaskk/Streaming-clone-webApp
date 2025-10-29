@@ -66,9 +66,7 @@ function MovieCard(props) {
 				>
 					<img ref={imgRef} src={posterSrc}  alt={props.title} 
 						onClick={() => {
-							navigate(`/movie/${props.id}` );
-							console.log("click");
-							
+							navigate(`/movie/${props.id}` );							
 						}}
 						onMouseEnter={() => {
 							gsap.to(hoverContainer.current,{
