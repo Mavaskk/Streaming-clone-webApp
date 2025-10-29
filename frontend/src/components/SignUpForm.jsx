@@ -24,9 +24,10 @@ function SignUpForm(props) {
 
     const sendSingUpData = (async(e) => {
         e.preventDefault()
-        console.log(formRef.current);
-        if (!formRef.current.checkValidity) {
+        if (!formRef.current.checkValidity()) {
             formRef.current.reportValidity()
+        }
+        else {
             setEmail("")   
                     setPassword("")  
                     const inpuData = {
@@ -40,7 +41,7 @@ function SignUpForm(props) {
                     const user = await registerUser(inpuData)  
                     if (user.payload.status === "success") { // se login avviene con successo manda home
                         navigate("/authentication/login")
-                    }            
+                    }                        
         }
         
       
@@ -89,6 +90,7 @@ function SignUpForm(props) {
                     <label className="form-label">Password</label>
                     <input 
                     required
+                    min={6}
                     value={password}
                     onChange={
                         (e) => (setPassword(e.target.value))

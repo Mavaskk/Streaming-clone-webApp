@@ -12,6 +12,8 @@ function  Home() {
     <main>
         <HeroSection/>
         <FilmSection/>
+        <FilmSection/>
+
     </main>
    )
     

@@ -18,7 +18,10 @@
     margin-top: 1rem;
 }
 
-
+.error-msg{
+    text-align: center;
+    color: red;
+}
 
 
 .form-input{
