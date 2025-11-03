@@ -12,16 +12,13 @@ import AddToListBtn from './AddToListBtn';
 function FooterCard(props) {
 
 
-    
- 
-
 
     return (
         <div className="btn-container d-flex flex-row justify-content-center gap-2 align-items-center position-absolute "
 
         ref={props.ref} >
-            <PlayMovieBtn movieId={props.movieId}/>
-            <AddToListBtn releaseDate={props.releaseDate} title={props.title} backdropPath ={props.backdropPath} posterPath ={props.posterPath} voteAverage = {props.voteAverage} key={props.id} id={props.id}/>
+            <PlayMovieBtn movieId={props.id}/>
+            <AddToListBtn  id={props.id} guid={props.guid} releaseDate={props.releaseDate} title={props.title} backdropPath ={props.backdropPath} posterPath ={props.posterPath} voteAverage = {props.voteAverage} key={props.id}/>
         </div>
     )
 }

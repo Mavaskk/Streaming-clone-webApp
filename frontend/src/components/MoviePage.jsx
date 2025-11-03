@@ -106,7 +106,7 @@ function MoviePage() {
                         <div className='d-flex flex-row gap-3'>
                             <PlayMovieBtn movieId = {movie.id} /> 
                             <TrailerBtn id = {movie.id}/>            
-                            <AddToListBtn/>              
+                            <AddToListBtn id={movie.id}/>              
                         </div>
                     
                     </div>                    

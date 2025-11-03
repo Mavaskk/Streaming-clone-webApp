@@ -9,10 +9,15 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 function MovieList(props) {
 
 
-    const [bookList,setBookList] = useState(props.list ? (props.list) : (""))
+    const [bookList,setBookList] = useState([])
+
+
 
     useEffect(() => {
-        setBookList(props.list)
+
+        setBookList(props.list || [])
+        
+        
     },[props.list])
 
 
@@ -31,10 +36,10 @@ function MovieList(props) {
             <div className="container-fluid ps-3 pe-3 d-flex justify-content-center align-items-center flex-column ">
 
                 
-                <ul className="row p-0  ">
+                <ul className="row p-0">
                     {bookList !== "" &&   
                         bookList.map((obj,index) => (
-                        <MovieCard zIndex={bookList.length-index} releaseDate={obj.releaseDate} title={obj.title} backdropPath ={obj.backdropPath} posterPath ={obj.posterPath} voteAverage = {obj.voteAverage} key={obj.id} id={obj.id}/>
+                        <MovieCard zIndex={bookList.length-index} guid={obj.guid} releaseDate={obj.releaseDate} title={obj.title} backdropPath ={obj.backdropPath} posterPath ={obj.posterPath} voteAverage = {obj.voteAverage} key={obj.id} id={obj.id}/>
                     )) }
 
 

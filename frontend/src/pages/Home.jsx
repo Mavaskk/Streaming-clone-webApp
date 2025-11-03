@@ -17,15 +17,24 @@ function  Home() {
     const loadWatchLIst =  (async () => {
         const request = await getListPrivate("watchListTest")
         
+        request.payload.items.map((obj) =>{
+            const movie = {
+                title: obj.title,
+                id: obj.id,
+                nodeType: obj.nodeType,
+                posterPath: obj.posterPath,
+                guid: obj.guid
+
+            }
+
+
+            return movie
+        })
+        
         setWatchList(request.payload.items)
         
                 
     })
-
-    useEffect(() => {
-        console.log(watchList);
-        
-    },[watchList])
 
     useEffect( () => {
         loadWatchLIst()

@@ -34,6 +34,9 @@ function MovieCard(props) {
 			gsap.set(divRef.current,{
 				zIndex : props.zIndex,
 			})
+			
+			
+			
 				
 		},[props.zIndex])
 
@@ -99,7 +102,7 @@ function MovieCard(props) {
 
 							</div>
 						</div>
-						{props.id === hoverCardId && <FooterCard ref={footerRef} movieId={props.id}/>}
+						{props.id === hoverCardId && <FooterCard ref={footerRef} guid={props.guid} id={props.id} releaseDate={props.releaseDate} title={props.title} backdropPath ={props.backdropPath} posterPath ={props.posterPath} voteAverage = {props.voteAverage} key={props.id} />}
 				</li>
 			</div>
 

@@ -40,6 +40,7 @@ function CloneCardFilmSlider(props) {
 
             })
             setCardHoverStatus(true)
+
             
         },[props.activateCard])
 
@@ -114,7 +115,7 @@ function CloneCardFilmSlider(props) {
                             
                              
                         </div>    
-                        {cardHoverStatus && <FooterCard releaseDate={props.releaseDate} title={props.title} backdropPath ={props.backdropPath} posterPath ={props.posterPath} voteAverage = {props.voteAverage} key={props.id} id={props.id} />  } 
+                        {cardHoverStatus && <FooterCard id={props.id} guid= {props.guid} releaseDate={props.releaseDate} title={props.title} backdropPath ={props.backdropPath} posterPath ={props.posterPath} voteAverage = {props.voteAverage} key={props.id} />  } 
                                           
 
                                       

@@ -10,20 +10,27 @@ function Favorites() {
 
     const {watchList,setWatchList} = useContext(watchListContext)
 
-    const loadData = ( async () => {
-        if (!watchList.lenght) {
+    const loadData =  async () => {
+        if (!watchList.length) {
             const request = await getListPrivate("watchListTest")
-            setWatchList(request.payload.items)            
+            // console.log(request.payload.items);
+            
+            
+            setWatchList(request.payload.items)      
+            
+
         }
 
 
         
-    })
+    }
 
     // se lista vuota carico i film direttamente da qua
 
     useEffect(() => {
         loadData()
+        
+        
         
     },[])
     

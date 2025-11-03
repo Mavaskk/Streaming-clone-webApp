@@ -7,13 +7,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { gsap } from "gsap";
+import { watchListContext } from "../App.jsx";
+import { useContext } from "react"
 
 
 // Import Swiper styles
 import "../css/CardFilmSlider.css"
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { height, width } from "@fortawesome/free-solid-svg-icons/fa0"
 
 
 
@@ -23,7 +24,7 @@ import { height, width } from "@fortawesome/free-solid-svg-icons/fa0"
 
 function FilmSection(props) {
 
-    
+    const {watchList,setWatchList} = useContext(watchListContext)
 
     const [saveIdCardToScale,setSaveIdCardToScale] = useState("")
     const sectionRef = useRef(null)
@@ -55,14 +56,40 @@ function FilmSection(props) {
         
     }
 
+    const fetchAndMark = (async () => { // controllo se movie sono in watchlist per assegnare uguid
+            const list = await getMoviesInTheatres()
+            list.map((movie) => {
+                const match = watchList.find(w => w.id === movie.id);
+                if (match) {
+                    movie.guid = match.guid
+                    return movie
+                }
+                else {
+                    return movie
+                }
+                
+                // return match ? { ...movie, guid: match.guid } : movie;
+                
+            })
+            setFilmList(list.reverse())
+
+    })
+
     useEffect(() => {
-        getMoviesInTheatres().then(list => setFilmList(list.reverse()))
+
+        fetchAndMark()
+
         
-    },[])
+    },[watchList])
 
     useEffect(() => {
         //animazione card entrata        
     })
+
+    // useEffect(() => {
+    //     console.log(filmList);
+        
+    // },[filmList])
 
     
     const cardContainer = useRef(null)
@@ -95,7 +122,7 @@ function FilmSection(props) {
                         {filmList.map(obj => 
                         <SwiperSlide  >
                             <div ref = {cardContainer}>
-                                <CardFilmSlider  passHoverState={passHoverState} releaseDate={obj.releaseDate} title={obj.title} backdropPath ={obj.backdropPath} posterPath ={obj.posterPath} voteAverage = {obj.voteAverage} key={obj.id} id={obj.id}/>
+                                <CardFilmSlider  passHoverState={passHoverState} guid = {obj.guid} releaseDate={obj.releaseDate} title={obj.title} backdropPath ={obj.backdropPath} posterPath ={obj.posterPath} voteAverage = {obj.voteAverage} key={obj.id} id={obj.id}/>
                             </div>
                                         {/* <FooterCard  />                     */}
 
@@ -104,7 +131,7 @@ function FilmSection(props) {
                         )}            
                     </Swiper>  
                         {activateCard !==  null && (filmList.map(obj => 
-                            (obj.id === activateCard.id && (<CloneCardFilmSlider activateCard={activateCard} returnStatus={returnStatus} passHoverState={passHoverState} releaseDate={obj.releaseDate} title={obj.title} backdropPath ={obj.backdropPath} posterPath ={obj.posterPath} voteAverage = {obj.voteAverage} key={obj.id} id={obj.id}/>)
+                            (obj.id === activateCard.id && (<CloneCardFilmSlider  activateCard={activateCard} returnStatus={returnStatus} passHoverState={passHoverState} releaseDate={obj.releaseDate} title={obj.title} backdropPath ={obj.backdropPath} posterPath ={obj.posterPath} voteAverage = {obj.voteAverage} key={obj.id} id={obj.id}/>)
                         ))
                         )}                                    
 
